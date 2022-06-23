@@ -13,14 +13,15 @@ class DataSource(
 ) {
 
     val data: Flow<String> = flow {
+
         while (true) {
             val dataFromDataBase = dataBase.fetchData()
             emit(dataFromDataBase.toString())
             delay(refreshIntervalMs)
         }
-    }
+
+    } // flow
+
         .flowOn(Dispatchers.Default)
-        .catch { e ->
-            println(e.message)//Error!
-        }
+        .catch { e -> println(e.message) }
 }

@@ -7,7 +7,6 @@ import kotlinx.coroutines.flow.map
 
 class Repository(dataSource: DataSource = DataSource()) {
 
-    val userData: Flow<Data> =
-        dataSource.data.map { data -> Data(data) }
-    //.onEach { saveInCache(it) }
+    val userData: Flow<Data> = dataSource.data
+        .map { data -> Data(data) }
 }

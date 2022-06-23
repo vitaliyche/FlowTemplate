@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         ViewModelProvider(this)[MainViewModel::class.java]
             .liveData.observe(this) { dataFromDataBase ->
-                textView.text = dataFromDataBase.Data
+                textView.text = dataFromDataBase.data
             }
 
     } // onCreate
